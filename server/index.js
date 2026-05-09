@@ -19,7 +19,7 @@ const server = http.createServer(app);
 //bind Socket.io to the server.
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTED_URL,
+    origin: 'https://ubiquitous-croissant-24cc68.netlify.app',
     methods: ['GET', 'POST']
   }
 });
