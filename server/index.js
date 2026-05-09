@@ -19,14 +19,14 @@ const server = http.createServer(app);
 //bind Socket.io to the server.
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTED_URL,
+    origin: process.env.FRONTEND_URL,
     methods: ['GET', 'POST']
   }
 });
 
 // 中间件
 app.use(cors({
-  origin: process.env.FRONTED_URL,
+  origin: process.env.FRONTEND_URL,
   credentials: true
 }));  // 允许前端访问
 app.use(express.json());  // 解析 JSON 数据
