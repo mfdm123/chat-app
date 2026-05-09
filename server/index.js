@@ -19,14 +19,14 @@ const server = http.createServer(app);
 //bind Socket.io to the server.
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: process.env.DB_URL,
     methods: ['GET', 'POST']
   }
 });
 
 // 中间件
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: process.env.DB_URL,
   credentials: true
 }));  // 允许前端访问
 app.use(express.json());  // 解析 JSON 数据
