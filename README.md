@@ -34,8 +34,6 @@ node index.js
 
 ### 前端
 npm install
-npm run dev"# chat-app" 
-"# chat-app" 
-"# chat-app" 
-"# chat-app" 
+npm run dev
+
 "# chat-app" 
