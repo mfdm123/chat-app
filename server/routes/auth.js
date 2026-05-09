@@ -21,6 +21,7 @@ router.post('/register', async (req, res) => {
         });
         res.status(201).json({ message: 'Resgistration successful.', userId: user._id });
     } catch (error) {
+        console.error(error.message);
         res.status(500).json({ message : 'Registration failed.', error: error.message });
     }
 });
@@ -50,6 +51,7 @@ router.post('/login', async (req, res) => {
 
         res.json({ message: 'Login successful.', token, username, userId: user._id });
     } catch (error) {
+        console.error(error.message);
         res.status(500).json({ message: 'Login failed.', error: error.message });
     }
 });
@@ -72,6 +74,7 @@ router.get('/users/me', async (req, res) => {
         const user = await User.findById(userId);
         res.status(201).json({ message: 'Login sccessful.', user });
     } catch (error) {
+        console.error(error.message);
         res.status(500).json({ message: "Create group failed.", error: error.message });
     }
 });
