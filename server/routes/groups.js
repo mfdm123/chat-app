@@ -33,6 +33,7 @@ router.post('/', async (req, res) => {
         const savedGroup = await Group.findById(group._id).populate('members', 'username');
         res.status(201).json({ group: savedGroup, message: 'Create group sccessful.' });
     } catch (error) {
+        console.error(error.message);
         res.status(500).json({ message: "Create group failed.", error: error.message });
     }
 });
@@ -122,6 +123,7 @@ router.post('/join', async (req, res) => {
 
         res.json({ message: 'Join the group successful.', group: savedGroup });
     } catch (error) {
+        console.error(error.message);
         res.status(500).json({ message: 'Failed to join the group.', error: error.message });
     }
 });
@@ -149,6 +151,7 @@ router.delete('/:id', async (req, res) => {
         await Group.deleteOne(group);
         res.json({ message: 'Delete the group successful.' });
     } catch (error) {
+        console.error(error.message);
         return res.status(500).json({ message: 'Failed to delete the group.', error: error.message });
     }
 });
